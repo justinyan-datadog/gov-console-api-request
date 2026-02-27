@@ -882,6 +882,229 @@ body {
   background: var(--dd-purple-dark);
 }
 
+/* Custom Datepicker */
+.datepicker-wrapper {
+  position: relative;
+}
+
+.datepicker-trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 9px 14px;
+  background: var(--dd-white);
+  border: 1px solid var(--dd-border);
+  border-radius: 6px;
+  font-size: 14px;
+  color: var(--dd-text);
+  cursor: pointer;
+  transition: border-color 0.15s, box-shadow 0.15s;
+  font-family: inherit;
+}
+
+.datepicker-trigger:hover {
+  border-color: #b0b1bb;
+}
+
+.datepicker-trigger:focus,
+.datepicker-trigger.active {
+  border-color: var(--dd-purple);
+  box-shadow: 0 0 0 3px rgba(99, 44, 166, 0.1);
+  outline: none;
+}
+
+.datepicker-value {
+  color: var(--dd-text);
+}
+
+.datepicker-value.placeholder {
+  color: #a0a1ae;
+}
+
+.datepicker-icon {
+  color: var(--dd-text-secondary);
+  flex-shrink: 0;
+}
+
+.datepicker-dropdown {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  width: 300px;
+  background: var(--dd-white);
+  border: 1px solid var(--dd-border);
+  border-radius: 10px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12), 0 2px 8px rgba(0, 0, 0, 0.06);
+  z-index: 10;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px);
+  transition: opacity 0.15s ease, transform 0.15s ease, visibility 0.15s;
+  padding: 4px;
+}
+
+.datepicker-dropdown.open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.datepicker-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 8px 8px;
+}
+
+.datepicker-month-year {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--dd-text);
+  user-select: none;
+}
+
+.datepicker-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border: none;
+  background: transparent;
+  border-radius: 6px;
+  cursor: pointer;
+  color: var(--dd-text-secondary);
+  transition: background 0.12s, color 0.12s;
+}
+
+.datepicker-nav:hover {
+  background: #f0f0f5;
+  color: var(--dd-text);
+}
+
+.datepicker-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  padding: 4px 4px 2px;
+}
+
+.datepicker-weekdays span {
+  text-align: center;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--dd-text-secondary);
+  padding: 4px 0;
+  user-select: none;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.datepicker-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+  padding: 2px 4px;
+}
+
+.datepicker-day {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  aspect-ratio: 1;
+  border: none;
+  background: transparent;
+  border-radius: 8px;
+  font-size: 13px;
+  color: var(--dd-text);
+  cursor: pointer;
+  transition: background 0.1s, color 0.1s;
+  font-family: inherit;
+  font-weight: 400;
+  position: relative;
+}
+
+.datepicker-day:hover:not(.disabled):not(.selected) {
+  background: #f0f0f5;
+}
+
+.datepicker-day.today:not(.selected) {
+  font-weight: 700;
+  color: var(--dd-purple);
+}
+
+.datepicker-day.today:not(.selected)::after {
+  content: '';
+  position: absolute;
+  bottom: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--dd-purple);
+}
+
+.datepicker-day.selected {
+  background: var(--dd-purple);
+  color: #fff;
+  font-weight: 600;
+}
+
+.datepicker-day.selected:hover {
+  background: var(--dd-purple-dark);
+}
+
+.datepicker-day.other-month {
+  color: #c8c9d1;
+}
+
+.datepicker-day.disabled {
+  color: #d8d9e0;
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.datepicker-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 8px 8px;
+  border-top: 1px solid #eef0f3;
+  margin-top: 4px;
+}
+
+.datepicker-clear,
+.datepicker-today {
+  border: none;
+  background: transparent;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 5px 12px;
+  border-radius: 5px;
+  transition: background 0.12s, color 0.12s;
+  font-family: inherit;
+}
+
+.datepicker-clear {
+  color: var(--dd-text-secondary);
+}
+
+.datepicker-clear:hover {
+  background: #f0f0f5;
+  color: var(--dd-text);
+}
+
+.datepicker-today {
+  color: var(--dd-purple);
+}
+
+.datepicker-today:hover {
+  background: var(--dd-purple-light);
+}
+
 /* Toast */
 .toast {
   position: fixed;
