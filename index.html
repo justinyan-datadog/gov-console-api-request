@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Governance Console - Metrics</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <img src="https://imgix.datadoghq.com/img/dd_logo_n_70x75.png?ch=Width,DPR&fit=max&auto=format&w=70&h=75" alt="Datadog" class="logo-img">
+      <span class="logo-text">DATADOG</span>
+    </div>
+    <nav class="sidebar-nav">
+      <a href="#" class="nav-item"><span class="nav-icon">&#9733;</span> Bits AI</a>
+      <a href="#" class="nav-item"><span class="nav-icon">&#9632;</span> Dashboards</a>
+      <a href="#" class="nav-item"><span class="nav-icon">&#9679;</span> Monitoring</a>
+      <a href="#" class="nav-item"><span class="nav-icon">&#9888;</span> Incident Response</a>
+      <a href="#" class="nav-item"><span class="nav-icon">&#9881;</span> Automation</a>
+      <div class="nav-divider"></div>
+      <a href="#" class="nav-item"><span class="nav-icon">&#9645;</span> Infrastructure</a>
+      <a href="#" class="nav-item"><span class="nav-icon">&#9729;</span> Cloud Cost</a>
+      <a href="#" class="nav-item"><span class="nav-icon">&#10148;</span> APM</a>
+      <a href="#" class="nav-item"><span class="nav-icon">&#9786;</span> Digital Experience</a>
+      <a href="#" class="nav-item"><span class="nav-icon">&#9998;</span> Software Delivery</a>
+      <a href="#" class="nav-item"><span class="nav-icon">&#9951;</span> Security</a>
+      <a href="#" class="nav-item"><span class="nav-icon">&#128202;</span> Data Observability</a>
+      <a href="#" class="nav-item"><span class="nav-icon">&#9733;</span> AI Observability</a>
+      <div class="nav-divider"></div>
+      <a href="#" class="nav-item"><span class="nav-icon">&#9888;</span> Errors</a>
+      <a href="#" class="nav-item active"><span class="nav-icon">&#128200;</span> Metrics</a>
+      <a href="#" class="nav-item"><span class="nav-icon">&#128196;</span> Logs</a>
+    </nav>
+    <div class="sidebar-footer">
+      <a href="#" class="nav-item"><span class="nav-icon">&#128279;</span> Integrations</a>
+      <div class="sidebar-user">
+        <div class="user-avatar">JY</div>
+        <div class="user-info">
+          <span class="user-name">justin.yan@data...</span>
+          <span class="user-org">Datadog HQ</span>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <main class="main-content">
+    <header class="top-bar">
+      <div class="search-bar">
+        <span class="search-icon">&#128269;</span>
+        <span>Search Datadog</span>
+        <span class="search-shortcut">&#8984; K</span>
+      </div>
+      <button class="ask-bits-btn">&#9733; Ask Bits</button>
+    </header>
+
+    <div class="page-header">
+      <div class="page-header-left">
+        <h1 class="page-title">Governance Console</h1>
+        <nav class="page-tabs">
+          <a href="#" class="tab-item">Summary <span class="tab-badge new">NEW</span></a>
+          <a href="#" class="tab-item">Products <span class="tab-badge new">NEW</span></a>
+          <a href="#" class="tab-item">Controls <span class="tab-badge preview">PREVIEW</span></a>
+          <a href="#" class="tab-item">Telemetry <span class="tab-badge preview">PREVIEW</span></a>
+        </nav>
+      </div>
+      <button class="feedback-btn">&#128172; Give Feedback</button>
+    </div>
+
+    <div class="content">
+      <div class="breadcrumb">
+        <a href="#" class="breadcrumb-link">Products</a>
+        <span class="breadcrumb-sep">&gt;</span>
+        <span class="breadcrumb-current">Metrics</span>
+      </div>
+
+      <h2 class="section-title">Metrics</h2>
+
+      <section class="limits-section">
+        <h3 class="subsection-title">Limits and Quotas</h3>
+        <p class="subsection-desc">Manage your limits to prevent configuration issues and mitigate potential cost issues. <a href="#" class="learn-more">Learn more</a></p>
+
+        <div class="rate-limit-cards">
+          <div class="rate-card" id="query-timeseries-card">
+            <div class="rate-card-header">
+              <span class="rate-card-title">Query Timeseries Public Rate Limit</span>
+              <span class="rate-card-period">1mo</span>
+              <span class="rate-card-max">15.5k times hit</span>
+            </div>
+            <div class="rate-card-body">
+              <div class="rate-card-value">44.03k <span class="rate-card-unit">times hit</span></div>
+              <div class="rate-card-change down">
+                <span class="arrow">&#8595;</span> 92.82 %
+              </div>
+              <div class="rate-card-vs">vs Previous Month</div>
+            </div>
+            <div class="rate-card-chart">
+              <div class="sparkline sparkline-pink"></div>
+              <span class="chart-zero">0</span>
+            </div>
+            <button class="request-increase-btn" onclick="openModal()">Request Rate Limit Increase</button>
+          </div>
+
+          <div class="rate-card">
+            <div class="rate-card-header">
+              <span class="rate-card-title">Batch Query Rate Limit</span>
+              <span class="rate-card-period">1mo</span>
+              <span class="rate-card-max">4.1k times hit</span>
+            </div>
+            <div class="rate-card-body">
+              <div class="rate-card-value">13.39k <span class="rate-card-unit">times hit</span></div>
+              <div class="rate-card-change down">
+                <span class="arrow">&#8595;</span> 30.76 %
+              </div>
+              <div class="rate-card-vs">vs Previous Month</div>
+            </div>
+            <div class="rate-card-chart">
+              <div class="sparkline sparkline-pink"></div>
+              <span class="chart-zero">0</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="usage-section">
+        <div class="usage-header">
+          <h3 class="subsection-title">Usage</h3>
+          <div class="time-toggle">
+            <button class="time-btn">1 Week</button>
+            <button class="time-btn">1 Month</button>
+            <button class="time-btn">3 Months</button>
+            <button class="time-btn active">6 Months</button>
+          </div>
+        </div>
+        <p class="subsection-desc">Understand your product usage at a high level.</p>
+
+        <div class="usage-card">
+          <div class="usage-card-header">
+            <span class="usage-card-title">Unqueried metrics</span>
+            <span class="usage-card-period">1mo</span>
+          </div>
+          <div class="usage-card-body">
+            <div class="usage-card-value">33.98k <span class="usage-card-unit">metrics</span></div>
+            <div class="usage-card-change up">
+              <span class="arrow">&#8593;</span> 22.08 %
+            </div>
+            <div class="usage-card-vs">vs Previous Month</div>
+          </div>
+          <div class="usage-chart">
+            <div class="usage-chart-area"></div>
+            <span class="chart-label-top">34.8k metrics</span>
+            <span class="chart-label-bottom">5.9k metrics</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="controls-section">
+        <h3 class="subsection-title">Controls</h3>
+        <table class="controls-table">
+          <thead>
+            <tr>
+              <th>STATE</th>
+              <th>CONTROL</th>
+              <th>LAST DETEC...</th>
+              <th>&#8593;&#8595; PRIORITY</th>
+              <th>USAGE CONCERN</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="state-badge enforce">ENFORCE</span></td>
+              <td>
+                <div class="control-name">&#9888; Inactive Metrics Tags</div>
+                <div class="control-detail">1,514 inactive metrics tags</div>
+                <div class="control-category">Metrics</div>
+              </td>
+              <td>3 hours ago</td>
+              <td><span class="priority-high">High</span></td>
+              <td>Cost Optimization</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </div>
+  </main>
+
+  <!-- Rate Limit Increase Modal -->
+  <div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+    <div class="modal" onclick="event.stopPropagation()">
+      <div class="modal-header">
+        <h3>Request Rate Limit Increase</h3>
+        <button class="modal-close" onclick="closeModal()">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-info">
+          <div class="info-icon">&#9432;</div>
+          <p>Submit a request to increase your Query Timeseries Public Rate Limit. Requests are reviewed by your account team.</p>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Current Rate Limit</label>
+          <div class="current-limit-display">
+            <span class="current-limit-value">15,500</span>
+            <span class="current-limit-unit">requests / hour</span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="newLimit">Requested New Limit <span class="required">*</span></label>
+          <div class="input-wrapper">
+            <input type="number" id="newLimit" class="form-input" placeholder="e.g. 25000" min="1">
+            <span class="input-suffix">requests / hour</span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="justification">Justification <span class="required">*</span></label>
+          <textarea id="justification" class="form-textarea" placeholder="Briefly explain why you need a higher rate limit..." rows="3"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="expirationDate">Expiration Date <span class="optional">(optional)</span></label>
+          <input type="date" id="expirationDate" class="form-input">
+          <span class="form-hint">Leave empty for a permanent increase. Set a date if this is a temporary need (e.g. migration, load test).</span>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-cancel" onclick="closeModal()">Cancel</button>
+        <button class="btn-submit" onclick="submitRequest()">Submit Request</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Success Toast -->
+  <div class="toast" id="toast">
+    <span class="toast-icon">&#10003;</span>
+    <span>Request submitted successfully. Your account team will review it shortly.</span>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
