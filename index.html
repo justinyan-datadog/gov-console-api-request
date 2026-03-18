@@ -219,9 +219,37 @@
         </div>
 
         <div class="form-group">
-          <label class="form-label" for="expirationDate">Expiration Date <span class="optional">(optional)</span></label>
-          <input type="date" id="expirationDate" class="form-input">
-          <span class="form-hint">Leave empty for a permanent increase. Set a date if this is a temporary need (e.g. migration, load test).</span>
+          <label class="form-label" for="expirationDate">Expiration Date <span class="required">*</span></label>
+          <div class="datepicker-wrapper" id="datepickerWrapper">
+            <div class="datepicker-input" id="datepickerInput" tabindex="0">
+              <svg class="datepicker-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <rect x="1" y="2.5" width="14" height="12" rx="2" stroke="currentColor" stroke-width="1.3"/>
+                <path d="M1 6.5h14" stroke="currentColor" stroke-width="1.3"/>
+                <path d="M5 1v3M11 1v3" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+              </svg>
+              <span class="datepicker-value" id="datepickerValue">Select a date</span>
+              <svg class="datepicker-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                <path d="M3 4.5l3 3 3-3" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <input type="hidden" id="expirationDate">
+            <div class="datepicker-dropdown" id="datepickerDropdown">
+              <div class="datepicker-header">
+                <button class="datepicker-nav" id="prevMonth" type="button">
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M8.5 3.5l-4 3.5 4 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+                <span class="datepicker-month-year" id="monthYear"></span>
+                <button class="datepicker-nav" id="nextMonth" type="button">
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M5.5 3.5l4 3.5-4 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+              </div>
+              <div class="datepicker-weekdays">
+                <span>Su</span><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span>
+              </div>
+              <div class="datepicker-days" id="datepickerDays"></div>
+            </div>
+          </div>
+          <span class="form-hint">All rate limit increases require an expiration date for periodic review.</span>
         </div>
       </div>
       <div class="modal-footer">
