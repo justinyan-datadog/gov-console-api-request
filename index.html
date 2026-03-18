@@ -233,21 +233,6 @@
               </svg>
             </div>
             <input type="hidden" id="expirationDate">
-            <div class="datepicker-dropdown" id="datepickerDropdown">
-              <div class="datepicker-header">
-                <button class="datepicker-nav" id="prevMonth" type="button">
-                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M8.5 3.5l-4 3.5 4 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                </button>
-                <span class="datepicker-month-year" id="monthYear"></span>
-                <button class="datepicker-nav" id="nextMonth" type="button">
-                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M5.5 3.5l4 3.5-4 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                </button>
-              </div>
-              <div class="datepicker-weekdays">
-                <span>Su</span><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span>
-              </div>
-              <div class="datepicker-days" id="datepickerDays"></div>
-            </div>
           </div>
         </div>
       </div>
@@ -256,6 +241,23 @@
         <button class="btn-submit" onclick="submitRequest()">Submit Request</button>
       </div>
     </div>
+  </div>
+
+  <!-- Datepicker Dropdown (outside modal to avoid clipping) -->
+  <div class="datepicker-dropdown" id="datepickerDropdown">
+    <div class="datepicker-header">
+      <button class="datepicker-nav" id="prevMonth" type="button">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M8.5 3.5l-4 3.5 4 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <span class="datepicker-month-year" id="monthYear"></span>
+      <button class="datepicker-nav" id="nextMonth" type="button">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M5.5 3.5l4 3.5-4 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+    <div class="datepicker-weekdays">
+      <span>Su</span><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span>
+    </div>
+    <div class="datepicker-days" id="datepickerDays"></div>
   </div>
 
   <!-- Success Toast -->
