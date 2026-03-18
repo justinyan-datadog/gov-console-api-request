@@ -138,8 +138,13 @@ function renderCalendar() {
 }
 
 function openDatepicker() {
-  document.getElementById('datepickerDropdown').classList.add('open');
-  document.getElementById('datepickerInput').classList.add('active');
+  var input = document.getElementById('datepickerInput');
+  var dropdown = document.getElementById('datepickerDropdown');
+  var rect = input.getBoundingClientRect();
+  dropdown.style.top = (rect.bottom + 6) + 'px';
+  dropdown.style.left = rect.left + 'px';
+  dropdown.classList.add('open');
+  input.classList.add('active');
 }
 
 function closeDatepicker() {

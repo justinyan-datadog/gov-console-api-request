@@ -675,7 +675,9 @@ body {
   width: 520px;
   max-width: 95vw;
   max-height: 90vh;
-  overflow-y: auto;
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
   animation: modalSlideIn 0.2s ease-out;
 }
@@ -720,6 +722,8 @@ body {
 
 .modal-body {
   padding: 20px 24px;
+  overflow-y: auto;
+  flex: 1;
 }
 
 .modal-info {
@@ -902,9 +906,7 @@ body {
 }
 
 .datepicker-dropdown {
-  position: absolute;
-  top: calc(100% + 6px);
-  left: 0;
+  position: fixed;
   width: 280px;
   background: var(--dd-white);
   border: 1px solid var(--dd-border);
