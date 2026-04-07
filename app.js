@@ -1,6 +1,9 @@
+let selectedTier = null;
+
 function openModal() {
   document.getElementById('modalOverlay').classList.add('active');
   document.body.style.overflow = 'hidden';
+  switchTab('short-term');
 }
 
 function closeModal(event) {
@@ -9,6 +12,58 @@ function closeModal(event) {
   document.body.style.overflow = '';
   closeDatepicker();
   resetForm();
+  resetPaidTab();
+}
+
+function switchTab(tabId) {
+  document.querySelectorAll('.modal-tab').forEach(function(tab) {
+    tab.classList.toggle('active', tab.getAttribute('data-tab') === tabId);
+  });
+  document.querySelectorAll('.tab-content').forEach(function(content) {
+    content.classList.remove('active');
+  });
+  document.getElementById('tab-' + tabId).classList.add('active');
+
+  document.getElementById('modalFooterShortTerm').style.display = tabId === 'short-term' ? '' : 'none';
+  document.getElementById('modalFooterPaid').style.display = tabId === 'paid' ? '' : 'none';
+
+  if (tabId === 'short-term') {
+    closeDatepicker();
+  }
+}
+
+function selectTier(el) {
+  document.querySelectorAll('.tier-option').forEach(function(opt) {
+    opt.classList.remove('selected');
+  });
+  el.classList.add('selected');
+  selectedTier = el.getAttribute('data-multiplier');
+  document.getElementById('checkoutBtn').disabled = false;
+}
+
+function resetPaidTab() {
+  selectedTier = null;
+  document.querySelectorAll('.tier-option').forEach(function(opt) {
+    opt.classList.remove('selected');
+  });
+  document.getElementById('checkoutBtn').disabled = true;
+}
+
+function proceedToCheckout() {
+  if (!selectedTier) return;
+
+  document.getElementById('modalOverlay').classList.remove('active');
+  document.body.style.overflow = '';
+
+  var toast = document.getElementById('toast');
+  toast.querySelector('span:last-child').textContent = 'Redirecting to checkout\u2026';
+  toast.classList.add('show');
+  setTimeout(function() {
+    toast.classList.remove('show');
+    toast.querySelector('span:last-child').textContent = 'Request submitted successfully!';
+  }, 4000);
+
+  resetPaidTab();
 }
 
 function resetForm() {
@@ -22,9 +77,9 @@ function resetForm() {
 }
 
 function submitRequest() {
-  const newLimit = document.getElementById('newLimit').value;
-  const justification = document.getElementById('justification').value;
-  const expirationDate = document.getElementById('expirationDate').value;
+  var newLimit = document.getElementById('newLimit').value;
+  var justification = document.getElementById('justification').value;
+  var expirationDate = document.getElementById('expirationDate').value;
 
   if (!newLimit) {
     document.getElementById('newLimit').focus();
@@ -46,9 +101,9 @@ function submitRequest() {
   document.getElementById('modalOverlay').classList.remove('active');
   document.body.style.overflow = '';
 
-  const toast = document.getElementById('toast');
+  var toast = document.getElementById('toast');
   toast.classList.add('show');
-  setTimeout(() => toast.classList.remove('show'), 4000);
+  setTimeout(function() { toast.classList.remove('show'); }, 4000);
 
   resetForm();
 }
