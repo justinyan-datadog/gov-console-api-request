@@ -191,23 +191,10 @@
         <h3>Request Rate Limit Increase</h3>
         <button class="modal-close" onclick="closeModal()">&times;</button>
       </div>
-
-      <div class="modal-tabs">
-        <button class="modal-tab active" data-tab="short-term" onclick="switchTab('short-term')">
-          Short-term Increase
-          <span class="tab-tag free">FREE</span>
-        </button>
-        <button class="modal-tab" data-tab="paid" onclick="switchTab('paid')">
-          Permanent Upgrade
-          <span class="tab-tag paid">PAID</span>
-        </button>
-      </div>
-
-      <!-- Tab 1: Short-term (free) increase — existing form -->
-      <div class="modal-body tab-content active" id="tab-short-term">
+      <div class="modal-body">
         <div class="modal-info">
           <div class="info-icon">&#9432;</div>
-          <p>Submit a request to temporarily increase your Query Timeseries Public Rate Limit. Requests are reviewed by endpoint owners.</p>
+          <p>Submit a request to increase your Query Timeseries Public Rate Limit. Requests are reviewed by endpoint owners</p>
         </div>
 
         <div class="form-group">
@@ -249,67 +236,9 @@
           </div>
         </div>
       </div>
-
-      <!-- Tab 2: Paid permanent upgrade -->
-      <div class="modal-body tab-content" id="tab-paid">
-        <div class="modal-info">
-          <div class="info-icon">&#9432;</div>
-          <p>Permanently upgrade your Query Timeseries Public Rate Limit. Select a tier and proceed to checkout.</p>
-        </div>
-
-        <div class="form-group">
-          <label class="form-label">Current Rate Limit</label>
-          <div class="current-limit-display">
-            <span class="current-limit-value">15,500</span>
-            <span class="current-limit-unit">requests / hour</span>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label class="form-label">Select New Limit</label>
-          <div class="tier-options">
-            <button class="tier-option" data-multiplier="2" onclick="selectTier(this)">
-              <div class="tier-badge">2x</div>
-              <div class="tier-details">
-                <span class="tier-limit">31,000</span>
-                <span class="tier-unit">requests / hour</span>
-              </div>
-              <div class="tier-check">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/><path d="M5 8l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="check-path"/></svg>
-              </div>
-            </button>
-            <button class="tier-option" data-multiplier="5" onclick="selectTier(this)">
-              <div class="tier-badge">5x</div>
-              <div class="tier-details">
-                <span class="tier-limit">77,500</span>
-                <span class="tier-unit">requests / hour</span>
-              </div>
-              <div class="tier-check">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/><path d="M5 8l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="check-path"/></svg>
-              </div>
-            </button>
-            <button class="tier-option" data-multiplier="10" onclick="selectTier(this)">
-              <div class="tier-badge popular">10x</div>
-              <div class="tier-details">
-                <span class="tier-limit">155,000</span>
-                <span class="tier-unit">requests / hour</span>
-              </div>
-              <div class="tier-check">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/><path d="M5 8l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="check-path"/></svg>
-              </div>
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Footer changes per tab -->
-      <div class="modal-footer" id="modalFooterShortTerm">
+      <div class="modal-footer">
         <button class="btn-cancel" onclick="closeModal()">Cancel</button>
         <button class="btn-submit" onclick="submitRequest()">Submit Request</button>
-      </div>
-      <div class="modal-footer" id="modalFooterPaid" style="display:none;">
-        <button class="btn-cancel" onclick="closeModal()">Cancel</button>
-        <button class="btn-submit btn-checkout" id="checkoutBtn" onclick="proceedToCheckout()" disabled>Proceed to Checkout</button>
       </div>
     </div>
   </div>
